@@ -12,9 +12,17 @@
       <li><a href="" class="p-3">post</a></li>
     </ul>
     <ul class="flex items-center">
-      <li><a href="" class="p-3">Name</a></li>
+      @auth
+        <li><a href="" class="p-3">Name</a></li>
+        <li><a href="" class="p-3">Name</a></li>
+      @endauth
+      @guest
       <li><a href="{{route('login')}}" class="p-3">Login</a></li>
       <li><a href="{{route('register')}}" class="p-3">Register</a></li>
+      @endguest
+        
+      
+      
     </ul>
   </nav>
   
