@@ -6,12 +6,18 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 class LoginController extends Controller
-{
+{   
+    public function __construct()
+    {
+        $this->middleware(['guest']); //access when not logged in
+    }
+
+
     public function index()
     {
-        
         return view('Auth.login');
     }
+
 
     public function login(Request $request)
     {
@@ -20,8 +26,7 @@ class LoginController extends Controller
             'email' => 'required| email',
             'password' => 'required'
         ]);
-
-        
+   
         if(!auth()->attempt($request->only('email', 'password'))) {
             return back()->with('status', 'invalid Login details');
         }

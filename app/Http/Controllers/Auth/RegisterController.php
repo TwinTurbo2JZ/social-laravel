@@ -10,16 +10,20 @@ use Illuminate\Support\Facades\Hash;
 
 class RegisterController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware(['guest']); //access when not logged in
+    }
+
+
     public function index()
     {
         return view('auth.register');
     }
     
-
+    
     public function store(Request $request)
     {
-
-      
         //dd($request->email);
         //dd('store');
         $this -> validate($request , [
