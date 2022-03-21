@@ -6,6 +6,7 @@
             <form action="{{ route('login') }}" method="post">
                 @csrf
                 @if (session('status'))
+                    {{-- can haeve styling --}}
                     {{session('status')}}
                 @endif
 
